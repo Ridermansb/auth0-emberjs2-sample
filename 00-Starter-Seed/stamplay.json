@@ -1,0 +1,10 @@
+{
+  "appId": "auth0",
+  "apiKey": "c2267b3d85c4feccb0743f25ec67c4a9e47cce68c104ab8901d91aa1d405e09e",
+  "public": "./dist",
+  "ignore": [
+    "stamplay.json",
+    "**/.*",
+    "**/node_modules/**"
+  ]
+}

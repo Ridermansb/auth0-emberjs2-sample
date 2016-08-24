@@ -6,8 +6,9 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('login');
-  this.route('callback');
+  this.route('login', function() {
+    this.route('callback');
+  });
   this.route('protected');
   this.route('auth-error');
 });

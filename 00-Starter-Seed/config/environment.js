@@ -17,15 +17,10 @@ module.exports = function(environment) {
       // Here you can pass flags/options to your application instance
       // when it is created
     },
-
-    Auth0: {
-      clientId: 'm2g7qIaQJngPtHOs5zl4bEHsVrSywa7W',
-      domain: 'ntotten-demo.auth0.com',
-      callbackUrl: 'http://localhost:4200/callback',
-    }
   };
 
   if (environment === 'development') {
+    ENV.host = 'http://localhost:8080';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
@@ -35,6 +30,7 @@ module.exports = function(environment) {
 
   if (environment === 'test') {
     // Testem prefers this...
+    ENV.host = 'http://localhost:8080';
     ENV.baseURL = '/';
     ENV.locationType = 'none';
 
@@ -46,7 +42,21 @@ module.exports = function(environment) {
   }
 
   if (environment === 'production') {
+    ENV.host = 'https://auth0.stamplayapp.com';
+  }
 
+  ENV[ 'contentSecurityPolicy' ] = {
+    'font-src': "'self' data: https://cdn.auth0.com",
+    'style-src': "'self' 'unsafe-inline'",
+    'script-src': "'self' 'unsafe-eval' 'unsafe-inline' https://cdn.auth0.com gitskills.auth0.com",
+    'connect-src': "'self' http://localhost:* gitskills.auth0.com auth0.stamplayapp.com"
+  };
+
+
+  ENV.Auth0 = {
+    clientId: 'PTFmTkI6eWcTBjbfD5Tzg9kugPyx9Mnp',
+    domain: 'gitskills.auth0.com',
+    callbackUrl: `${ENV.host}/login/callback`,
   }
 
   return ENV;
