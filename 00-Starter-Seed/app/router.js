@@ -11,6 +11,14 @@ Router.map(function() {
   });
   this.route('protected');
   this.route('auth-error');
+
+  this.route('auth', function() {
+    this.route('v1', function() {
+      this.route('auth0', function() {
+        this.route('callback');
+      });
+    });
+  });
 });
 
 export default Router;

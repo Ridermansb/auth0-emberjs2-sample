@@ -130,8 +130,12 @@ export default BaseAuthenticator.extend({
     @public
   */
   authenticate(hash) {
+    debugger;
     return new RSVP.Promise((resolve, reject) => {
-      var lock = new Auth0Lock('m2g7qIaQJngPtHOs5zl4bEHsVrSywa7W', 'ntotten-demo.auth0.com');
+      debugger;
+      let clientId = this.get('clientId');
+      let auth0Domain = this.get('auth0Domain');
+      var lock = new Auth0Lock(clientId, auth0Domain);
       var options = lock.parseHash();
       const expiresAt = this._absolutizeExpirationTime(options.expires_in);
       this._scheduleAccessTokenRefresh(options.expires_in, expiresAt, options.refresh_token);
