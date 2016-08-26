@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "ember build",
-    "start": "stamplay start",
+    "start": "stamplay start -p 4200",
     "prestart": "npm run build",
     "test": "ember test",
     "postinstall": "bower install"
