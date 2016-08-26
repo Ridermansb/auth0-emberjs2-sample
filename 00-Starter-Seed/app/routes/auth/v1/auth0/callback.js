@@ -3,10 +3,10 @@ import UnauthenticatedRouteMixin from 'ember-simple-auth/mixins/unauthenticated-
 
 export default Ember.Route.extend(UnauthenticatedRouteMixin, {
 
-  beforeModel(transition) {
+  /*beforeModel(transition) {
     this._super(...arguments);
     this.get('session').authenticate('simple-auth-authenticator:lock').catch((reason) => {
       this.set('errorMessage', reason.error);
     });
-  }
+  }*/
 });
