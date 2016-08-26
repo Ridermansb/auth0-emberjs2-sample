@@ -130,7 +130,6 @@ export default BaseAuthenticator.extend({
     @public
   */
   authenticate(hash) {
-    debugger;
     return new RSVP.Promise((resolve, reject) => {
       debugger;
       let clientId = this.get('clientId');

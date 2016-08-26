@@ -1,4 +1,10 @@
-{{main-navigation onLogin='transitionToLoginRoute'}}
-<div class="container">
-  {{outlet}}
-</div>
+<h1 id="title">Welcome to Auth0 Ember Simple Auth</h1>
+
+<header>
+    {{#if session.isAuthenticated}}
+        <h3>You are currently logged as: {{session.data.authenticated.profile.email}}</h3>
+        <a href="#" {{action 'logout'}}>Logout</a>
+    {{/if}}
+</header>
+
+{{outlet}}
